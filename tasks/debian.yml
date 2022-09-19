@@ -1,0 +1,38 @@
+---
+# tasks file for percona-server
+
+  - name: DEBIAN
+    command: echo "DEBIAN"
+
+  # This removes any percona repositories on the system
+  - name: remove the Percona apt main repository
+    apt: name=percona-release state=absent
+
+  - name: remove the Percona apt main repository
+    apt: name=percona-release state=absent
+
+  - name: Install percona repository package
+    apt:
+      deb: https://repo.percona.com/apt/percona-release_latest.generic_all.deb
+
+  - name: enable the PS-80 main repo
+    command: percona-release setup ps-80 -y
+
+# This task installs Percona Server 8.0 on CentOS and Debian/Ubuntu
+#
+
+  - name: install Percona Server deb packages
+    apt:
+      name: "{{ packages }}"
+      update_cache: yes
+      state: latest
+    vars:
+      packages:
+      - percona-server-server
+      - percona-server-test
+      - percona-server-dbg
+      - percona-server-source
+      - percona-server-client
+      - percona-server-rocksdb
+      - percona-mysql-router
+
