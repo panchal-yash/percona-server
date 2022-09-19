@@ -1,0 +1,7 @@
+---
+ - name: install perona server
+   hosts: localhost
+   roles:
+    - panchal_yash.percona_server
+   vars:
+     - percona_server_version: "8.0"
