@@ -1,0 +1,20 @@
+ - name: remove the percona Server Packages
+   apt: name=percona* state=absent
+
+ - name: remove the Percona Server Packages Caps
+   apt: name=Percona* state=absent
+
+  # This removes any percona repositories on the system
+ - name: remove the Percona apt main repository
+   apt: name=percona-release state=absent
+
+ - name: remove the Percona apt main repository
+   apt: name=percona-release state=absent
+
+ - name: Install percona repository package
+   apt:
+     deb: https://repo.percona.com/apt/percona-release_latest.generic_all.deb
+
+ - name: enable the PS-80 main repo
+   command: percona-release setup ps-80 -y
+
