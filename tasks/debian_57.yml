@@ -6,4 +6,4 @@
    include: debian_57_repos.yml
 
  - name: Install PERCONA SERVER
-   include: debian_57_installation.yml
+   include: debian_57_install.yml
