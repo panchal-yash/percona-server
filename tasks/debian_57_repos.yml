@@ -1,8 +1,10 @@
  - name: remove the percona Server and related components
    apt: name=percona* state=absent
+   ignore_errors: True
 
  - name: remove the Percona Server and related components Caps
-   apt: name=Percona* state=absent
+   apt: name=Percona* state=absent 
+   ignore_errors: True
 
  - name: remove the Percona apt main repository
    apt: name=percona-release state=absent

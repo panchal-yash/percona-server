@@ -1,8 +1,10 @@
   - name: remove the percona Server for mysql
     yum: name=percona* state=absent
+    ignore_errors: True
 
   - name: remove the Percona Server for mysql Caps
     yum: name=Percona* state=absent
+    ignore_errors: True
 
   - name: remove the Percona yum repositories
     yum: name=percona-release state=absent
