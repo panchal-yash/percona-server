@@ -4,4 +4,5 @@
    roles:
     - panchal_yash.percona_server
    vars:
-     - percona_server_version: "8.0"
+     - percona_server_version: "VERSION"
+     - percona_server_repository: "REPOSITORY"
