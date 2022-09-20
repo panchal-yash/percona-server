@@ -16,4 +16,13 @@
 
  - name: enable main repo
    command: percona-release enable-only original release
+   when: percona_server_repository == "main"
 
+ - name: enable only testing repo
+   command: percona-release enable-only original testing
+   when: percona_server_repository == "testing"
+
+ - name: change the default repo to experimental
+   command: percona-release enable original experimental
+   when: percona_server_repository == "experimental"
+   
