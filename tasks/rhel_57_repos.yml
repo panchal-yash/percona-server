@@ -24,9 +24,11 @@
     when: ansible_distribution_major_version == "8"
 
   - name: add the main Percona yum repos for centos
-#   yum: name=https://repo.percona.com/yum/testing/latest/RPMS/noarch/percona-release-1.0-21.noarch.rpm
-    yum: name=https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-
+    yum: 
+      name: https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+      disable_gpg_check: true
+    when: ansible_distribution_major_version == "6" or ansible_distribution_major_version == "7" or ansible_distribution_major_version == "8"
+    
   - name: enable main repo
     command: percona-release enable-only original release
     when: percona_server_repository == "main"
