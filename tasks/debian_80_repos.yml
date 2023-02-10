@@ -11,7 +11,7 @@
    apt: name=percona-release state=absent
 
  - name: remove the Percona apt main repository
-   apt: name=percona-release state=absent
+   apt: name=gnupg2 state=present
 
  - name: Install percona repository package
    apt:

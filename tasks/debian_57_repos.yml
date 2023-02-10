@@ -9,9 +9,11 @@
  - name: remove the Percona apt main repository
    apt: name=percona-release state=absent
 
+ - name: remove the Percona apt main repository
+   apt: name=gnupg2 state=present
+
  - name: Install percona repository package
    apt:
-#    deb: https://repo.percona.com/apt/pool/testing/p/percona-release/percona-release_1.0-21.generic_all.deb
     deb: https://repo.percona.com/apt/percona-release_latest.generic_all.deb
 
  - name: enable main repo
