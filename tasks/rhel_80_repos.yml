@@ -23,9 +23,9 @@
     command: /usr/bin/dnf module disable mysql -y
     when: ansible_distribution_major_version == "8"
 
-  - name: add the Percona testing yum repos for centos 6 and 7
+  - name: add the Percona release yum repos for centos 6, 7 and 8
     yum: name=https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-    when: ansible_distribution_major_version == "6" or ansible_distribution_major_version == "7"
+    when: ansible_distribution_major_version == "6" or ansible_distribution_major_version == "7" or ansible_distribution_major_version == "8"
 
   - name: enable the PS-80 main repo
     command: percona-release setup ps-80 -y
